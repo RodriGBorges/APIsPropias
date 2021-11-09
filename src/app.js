@@ -8,7 +8,7 @@ const app = express();
 const indexRouter = require('./routes/index');
 const moviesRoutes = require('./routes/moviesRoutes');
 const genresRoutes = require('./routes/genresRoutes');
-
+const apiGenres = require('./routes/api/genresRoutes')
 //Aquí pueden colocar las rutas de las APIs
 
 
@@ -25,9 +25,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
+app.use('/api', apiGenres);
 app.use(moviesRoutes);
 app.use(genresRoutes);
 
 
 //Activando el servidor desde express
-app.listen('3001', () => console.log('Servidor corriendo en el puerto 3001'));
+app.listen('3001', () => console.log('Servidor corriendo en http://localhost:3001'));
