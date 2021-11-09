@@ -9,6 +9,7 @@ const indexRouter = require('./routes/index');
 const moviesRoutes = require('./routes/moviesRoutes');
 const genresRoutes = require('./routes/genresRoutes');
 const apiGenres = require('./routes/api/genresRoutes');
+const apiMovies = require('./routes/api/moviesRoutes');
 
 //Aquí pueden colocar las rutas de las APIs
 
@@ -28,6 +29,7 @@ app.use(express.json());
 //Aquí estoy disponiendo la posibilidad para utilizar el seteo en los formularios para el usod e los metodos put ó delete
 app.use(methodOverride('_method'));
 app.use('/', indexRouter);
+app.use('/api', apiMovies);
 app.use('/api', apiGenres);
 
 app.use(moviesRoutes);
